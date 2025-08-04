@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CurveEasy – Tummy Shaper That Works</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #fff0f5;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: #ff4d88;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 10%;
+      background: #fff;
+      gap: 40px;
+      animation: fadeIn 1s ease-in;
+    }
+    .hero img {
+      max-width: 350px;
+      border-radius: 20px;
+      animation: slideInLeft 1.2s ease;
+    }
+    .hero-text {
+      max-width: 500px;
+      animation: slideInRight 1.2s ease;
+    }
+    .hero-text h1 {
+      font-size: 36px;
+      color: #e60073;
+      margin-bottom: 10px;
+    }
+    .hero-text p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .btn {
+      background: #ff3385;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    .btn:hover { background: #cc0066; }
+
+    .split-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 10%;
+      gap: 40px;
+    }
+    .split-section img {
+      max-width: 400px;
+      border-radius: 20px;
+    }
+    .split-text {
+      flex: 1;
+    }
+    .split-text h2 {
+      color: #e60073;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    .split-text p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .benefits {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 40px 10%;
+      text-align: center;
+    }
+    .benefit {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      flex: 1 1 200px;
+      transition: transform 0.3s ease;
+    }
+    .benefit:hover { transform: translateY(-5px); }
+    .video-sizechart {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding: 60px 10%;
+      align-items: flex-start;
+    }
+    .video-sizechart video {
+      max-width: 400px;
+      border-radius: 20px;
+    }
+    .size-chart {
+      flex: 1;
+    }
+    .size-chart table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .size-chart th, .size-chart td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      font-size: 14px;
+    }
+    .price-block {
+      background-color: #ffe6f0;
+      padding: 30px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 18px;
+      margin: 40px auto;
+      max-width: 400px;
+      text-align: center;
+    }
+    .form-section {
+      padding: 60px 10%;
+      background-color: #fff;
+    }
+    .checkout-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: space-between;
+    }
+    .summary, .form {
+      flex: 1;
+      min-width: 280px;
+    }
+    .summary {
+      background: #fff5f7;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .summary img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    form input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #aaa;
+    }
+    .success-message {
+      display: none;
+      padding: 20px;
+      background: #d4edda;
+      color: #155724;
+      font-weight: bold;
+      border-radius: 10px;
+      text-align: center;
+    }
+    footer {
+      background: #f5f5f5;
+      text-align: center;
+      padding: 30px 10%;
+      font-size: 14px;
+    }
+    @keyframes slideInLeft {
+      from { transform: translateX(-50px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes slideInRight {
+      from { transform: translateX(50px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .btn {
+    background: #ff3385;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.3);
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+  .btn:active::after {
+    opacity: 1;
+  }
+  .benefit {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .benefit:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+  .faq h4 {
+    cursor: pointer;
+    position: relative;
+  }
+  .faq h4::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+  }
+  .faq p {
+    display: none;
+    margin-top: 5px;
+  }
+  .faq h4.active::after {
+    content: '-';
+  }
+  .faq h4.active + p {
+    display: block;
+  }
+  @media screen and (max-width: 768px) {
+    .hero, .split-section, .video-sizechart, .checkout-container {
+      flex-direction: column;
+      text-align: center;
+      padding: 40px 5%;
+    }
+    .hero img, .split-section img, .video-sizechart video {
+      max-width: 90%;
+    }
+    .hero-text h1 {
+      font-size: 28px;
+    }
+    .hero-text p, .split-text p {
+      font-size: 16px;
+    }
+    .split-section img, .split-section .split-text {
+      width: 100%;
+    }
+    .form-section input, .form select {
+      font-size: 16px;
+    }
+    .price-block {
+      flex-direction: column;
+      text-align: center;
+    }
+    .price-block img {
+      margin-top: 20px;
+      max-width: 80%;
+    }
+    .review-card {
+      width: 240px !important;
+    }
+  } 
+</style>
+</head>
+<body>
+<header>
+  📦 Cash on Delivery Available | Free Shipping | Delivery in 5–6 Days Across India
+</header>
+
+<section class="hero">
+  <img src="./assets/img1.jpeg" alt="CurveEasy Tummy Shaper">
+  <div class="hero-text">
+    <h1>CurveEasy™ – Slim Look in Seconds</h1>
+    <p>CurveEasy is a comfy and stylish tummy shaper made just for Indian women. It helps you look slim and feel confident in any outfit – sarees, jeans, dresses, or office wear.</p>
+    <p>Soft, breathable fabric keeps you comfortable all day long. No rolling, no itching – just smooth support where you need it most.</p>
+    <p>Over 10,000 women already love CurveEasy. Now it’s your turn to feel the difference.</p>
+    <button class="btn" onclick="document.getElementById('order').scrollIntoView({behavior: 'smooth'})">Order Now (COD)</button>
+  </div>
+</section>
+
+<section class="split-section">
+  <div class="split-text">
+    <h2>✨ Comfortable Compression That Works</h2>
+    <p>Unlike regular shapewear that suffocates or rolls down, CurveEasy is made from a flexible, breathable fabric that hugs your curves while letting your skin breathe.</p>
+    <p>Our anti-roll silicone waistband ensures the shaper stays in place — no matter if you're sitting, dancing, walking, or just living your best life.</p>
+    <button class="btn" onclick="document.getElementById('order').scrollIntoView({behavior: 'smooth'})">Shop Now</button>
+  </div>
+  <img src="./assets/img2.jpeg" alt="Shapewear Comfort">
+</section>
+
+<section class="split-section">
+  <img src="./assets/img3.jpeg" alt="Fabric Closeup">
+  <div class="split-text">
+    <h2>🧵 Crafted for Real Indian Body Types</h2>
+    <p>We’ve studied Indian waist-to-hip proportions and created sizes that actually fit – from XS to 3XL. This isn’t imported sizing that leaves you squeezed or sagging.</p>
+    <p>CurveEasy gives gentle support to your tummy, hips, and waist – and works under everything from a salwar suit to a bodycon dress.</p>
+    <button class="btn" onclick="document.getElementById('order').scrollIntoView({behavior: 'smooth'})">Choose My Size</button>
+  </div>
+</section>
+
+<section class="benefits">
+  <div class="benefit">✔ Seamless Look Under Clothes</div>
+  <div class="benefit">✔ Breathable All-Day Fabric</div>
+  <div class="benefit">✔ Doesn’t Roll or Ride Up</div>
+  <div class="benefit">✔ Fits All Indian Outfits</div>
+</section>
+
+<section class="video-sizechart">
+  <video controls>
+    <source src="./assets/vid1.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="size-chart">
+    <h3>📏 Find Your Perfect Fit</h3>
+    <p>Measure yourself honestly and refer to the chart below before ordering. A proper fit ensures you get the full comfort + slimming combo!</p>
+    <table>
+      <tr><th>Size</th><th>Waist (inches)</th><th>Hip (inches)</th></tr>
+      <tr><td>XS</td><td>26</td><td>28–30</td></tr>
+      <tr><td>S</td><td>28</td><td>30–32</td></tr>
+      <tr><td>M</td><td>30</td><td>32–34</td></tr>
+      <tr><td>L</td><td>32</td><td>34–36</td></tr>
+      <tr><td>XL</td><td>34</td><td>36–38</td></tr>
+      <tr><td>XXL</td><td>36</td><td>38–40</td></tr>
+      <tr><td>3XL</td><td>38</td><td>40–42</td></tr>
+    </table>
+    <div style="height: 20px;"></div>
+<div style="text-align: center;">
+  <button class="btn" onclick="document.getElementById('order').scrollIntoView({behavior: 'smooth'})">Order My Size</button>
+</div>
+  </div>
+</section>
+
+<section class="price-block" style="max-width: 900px; display: flex; gap: 40px; align-items: center; justify-content: center; flex-wrap: wrap; text-align: left;">
+  <div style="flex: 1; min-width: 300px;">
+    <p style="font-size: 16px; color: #333; line-height: 1.6;">
+      Why pay more for uncomfortable shapewear that doesn’t fit right or feels bulky? <br><br>
+      With <strong>CurveEasy</strong>, you get premium-quality tummy shaping made with breathable, stretchable fabric that adapts to your body.
+      It’s lightweight, invisible under clothes, and gives you a smoother shape instantly – with zero discomfort.
+    </p>
+    <br>
+    <p style="font-size: 20px; color: #e60073;"><strong>MRP ₹799</strong></p>
+    <p style="font-size: 24px; font-weight: bold; color: #2e2e2e;">
+      Today’s Offer: <span style="color: #e60073;">₹399 Only</span><br>
+      + <strong>FREE Shipping</strong> all over India<br>
+      <span style="color: #28a745;">✅ Cash on Delivery – No advance. No risk.</span>
+    </p>
+  </div>
+  <img src="./assets/offer.avif" alt="Special Offer" style="max-width: 300px; border-radius: 12px;">
+</section>
+
+<section class="form-section" id="order">
+  <h2 style="text-align:center; color:#e60073;">🛒 Place Your Order Now</h2>
+  <div class="checkout-container">
+    <div class="summary">
+      <img src="./assets/img1.jpeg" alt="Product Summary" />
+      <p><strong>CurveEasy Tummy Shaper</strong></p>
+      <p>Today’s Price: ₹399</p>
+      <p>Payment Method: Cash on Delivery</p>
+      <p>Delivery in 5–6 working days</p>
+      <p>✅ No advance payment. Pay only after delivery.</p>
+    </div>
+    <div class="form">
+      <form id="codForm" action="https://formsubmit.co/curveeasy@gmail.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="tel" name="phone" placeholder="Mobile Number" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="number" name="count" placeholder="choose how many you want" required>
+        <p style="font-weight: bold; font-size: 16px; margin-bottom: 10px;">
+  Total Price: ₹<span id="totalPrice">399</span>
+</p>
+        <input type="text" name="address" placeholder="Full Address" required>
+        <input type="text" name="city" placeholder="City" required>
+        <input type="text" name="pincode" placeholder="Pincode" required>
+        <input type="text" name="district" placeholder="District" required>
+        <input type="text" name="state" placeholder="State" required>
+        <select name="size" required style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #aaa; font-size: 14px;">
+          <option value="" disabled selected>Select Size</option>
+          <option value="XS">XS</option>
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+          <option value="XXL">XXL</option>
+          <option value="3XL">3XL</option>
+          <option value="free-size">free-size</option>
+        </select>
+        <div style="text-align: center; margin-top: 20px;">
+          <button type="submit" class="btn" style="padding: 14px 32px; font-size: 16px;">Place My Order (COD)</button>
+        </div>
+      </form>
+      <div class="success-message" id="successMsg">
+        🎉 Order confirmed! We’ll send you a confirmation email shortly. Thank you for shopping CurveEasy.
+      </div>
+    </div>
+  </div>
+</section>
+<section class="reviews" style="padding: 60px 10%; background: #fff0f8; text-align: center;">
+  <h2 style="color: #e60073; margin-bottom: 30px;">❤️ Loved by Thousands of Women</h2>
+  <div style="display: flex; overflow-x: auto; gap: 20px; padding-bottom: 20px; scrollbar-width: thin;">
+    <div style="display: flex; gap: 20px; min-width: max-content;">
+      <!-- Review Card Template -->
+      <style>
+        .review-card {
+          background: white;
+          border-radius: 12px;
+          padding: 20px;
+          width: 280px;
+          min-width: 280px;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .review-card p {
+          margin: 5px 0;
+        }
+      </style>
+      <div class="review-card">
+  <img src="./assets/review1.jpeg" alt="Customer" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;">
+  <p style="font-size: 18px; font-weight: bold;">⭐️⭐️⭐️⭐️⭐️</p>
+        <p>"Perfect for Indian wear. I wore it under my saree and felt amazing all night!"</p>
+        <p style="font-weight: 600;">– Aarti R., Ahmedabad</p>
+      </div>
+      <div class="review-card">
+  <img src="./assets/review2.jpeg" alt="Customer" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;">
+  <p style="font-size: 18px; font-weight: bold;">⭐️⭐️⭐️⭐️</p>
+        <p>"Soft, breathable, and doesn’t roll down. Just what I needed!"</p>
+        <p style="font-weight: 600;">– Nisha P., Bhopal</p>
+      </div>
+      <div class="review-card">
+  <img src="./assets/review3.jpeg" alt="Customer" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;">
+  <p style="font-size: 18px; font-weight: bold;">⭐️⭐️⭐️⭐️⭐️</p>
+        <p>"Gives me that clean tummy look instantly. Love CurveEasy!"</p>
+        <p style="font-weight: 600;">– Kavita M., Kochi</p>
+      </div>
+      <div class="review-card">
+  <img src="./assets/review5.jpeg" alt="Customer" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;">
+  <p style="font-size: 18px; font-weight: bold;">⭐️⭐️⭐️⭐️⭐️</p>
+        <p>"Super comfy! I even wear it at work now. Highly recommend."</p>
+        <p style="font-weight: 600;">– Simran D., Chandigarh</p>
+      </div>
+      <div class="review-card">
+  <img src="./assets/review4.jpeg" alt="Customer" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;">
+  <p style="font-size: 18px; font-weight: bold;">⭐️⭐️⭐️⭐️</p>
+        <p>"Good hold and stretch. Works under kurtas and dresses alike."</p>
+        <p style="font-weight: 600;">– Rupal V., Vadodara</p>
+      </div>
+      <div class="review-card">
+  <img src="./assets/review6.jpeg" alt="Customer" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;">
+  <p style="font-size: 18px; font-weight: bold;">⭐️⭐️⭐️⭐️⭐️</p>
+        <p>"Slim look in seconds. Best ₹399 I've spent this year!"</p>
+        <p style="font-weight: 600;">– Anusha L., Chennai</p>
+      </div>
+      <div class="review-card">
+  <img src="./assets/review11.jpeg" alt="Customer" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;">
+  <p style="font-size: 18px; font-weight: bold;">⭐️⭐️⭐️⭐️</p>
+        <p>"Better than any shapewear I used before. Love it!"</p>
+        <p style="font-weight: 600;">– Fatima Z., Hyderabad</p>
+      </div>
+      <div class="review-card">
+  <img src="./assets/review8.jpeg" alt="Customer" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;">
+  <p style="font-size: 18px; font-weight: bold;">⭐️⭐️⭐️⭐️⭐️</p>
+        <p>"My go-to for parties and functions now. CurveEasy rocks!"</p>
+        <p style="font-weight: 600;">– Tanya B., Kolkata</p>
+      </div>
+      <div class="review-card">
+  <img src="./assets/review9.jpeg" alt="Customer" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;">
+  <p style="font-size: 18px; font-weight: bold;">⭐️⭐️⭐️⭐️</p>
+        <p>"Doesn't leave marks on skin. Super breathable even in summer."</p>
+        <p style="font-weight: 600;">– Sonal S., Nagpur</p>
+      </div>
+      <div class="review-card">
+  <img src="./assets/review10.jpeg" alt="Customer" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;">
+  <p style="font-size: 18px; font-weight: bold;">⭐️⭐️⭐️⭐️⭐️</p>
+        <p>"Finally something that fits well and stays hidden."</p>
+        <p style="font-weight: 600;">– Rhea J., Indore</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" style="padding: 60px 10%; background: #fff; text-align: left;">
+  <h2 style="text-align: center; color: #e60073; margin-bottom: 40px;">❓ Frequently Asked Questions</h2>
+  <div style="max-width: 800px; margin: auto; line-height: 1.6;">
+    <h4>Q: What is your return or exchange policy?</h4>
+    <p>A: We offer a hassle-free return or exchange within 5 days of delivery. If the product doesn’t fit or meet your expectations, just reach out to us at <a href="mailto:curveeasy@gmail.com">curveeasy@gmail.com</a> and we’ll assist you.</p>
+    <h4>Q: Can I wear CurveEasy under tight clothes?</h4>
+    <p>A: Yes! CurveEasy is designed to be seamless and invisible under body-hugging outfits, including sarees, dresses, jeans, and more.</p>
+
+    <h4>Q: Will it roll down when I move or sit?</h4>
+    <p>A: No. CurveEasy comes with an anti-roll waistband that keeps it firmly in place even when you bend, sit, or walk all day long.</p>
+
+    <h4>Q: How do I choose the right size?</h4>
+    <p>A: Please refer to our detailed size chart above. Measure your waist and hip honestly for the best fit and comfort.</p>
+
+    <h4>Q: Is this product available on COD?</h4>
+    <p>A: Yes! We offer Cash on Delivery all across India. You pay only when the product is delivered to your doorstep.</p>
+
+    <h4>Q: Can I wash the shapewear?</h4>
+    <p>A: Absolutely. Hand wash or gentle machine wash recommended. Do not iron or bleach.</p>
+  </div>
+</section>
+
+<footer>
+  🔒 Secure Checkout | 💵 Pay on Delivery | 🚚 <strong>Free Delivery</strong> | 🔁 <strong>5-Day Return/Exchange</strong> | 📩 <strong>Support: <a href='mailto:curveeasy@gmail.com'>curveeasy@gmail.com</a></strong><br />
+  © 2025 CurveEasy. All rights reserved.
+</footer>
+
+<script>
+  const form = document.getElementById("codForm");
+  const successMsg = document.getElementById("successMsg");
+  const countInput = document.querySelector('input[name="count"]');
+  const totalPriceDisplay = document.getElementById("totalPrice");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    form.style.display = "none";
+    successMsg.style.display = "block";
+  });
+
+  const faqHeaders = document.querySelectorAll('.faq h4');
+  faqHeaders.forEach(header => {
+    header.addEventListener('click', () => {
+      header.classList.toggle('active');
+      const nextP = header.nextElementSibling;
+      if (nextP) nextP.style.display = nextP.style.display === 'block' ? 'none' : 'block';
+    });
+  });
+
+  // 🆕 Update price dynamically
+  function updateTotalPrice() {
+    const count = parseInt(countInput.value);
+    const pricePerItem = 399;
+    const total = isNaN(count) || count <= 0 ? pricePerItem : count * pricePerItem;
+    totalPriceDisplay.textContent = total;
+  }
+
+  countInput.addEventListener('input', updateTotalPrice);
+</script>
+</body>
+</html>
