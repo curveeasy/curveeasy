@@ -530,11 +530,13 @@
   const countInput = document.querySelector('input[name="count"]');
   const totalPriceDisplay = document.getElementById("totalPrice");
 
-  form.addEventListener("submit", function(e) {
-    e.preventDefault();
+  form.addEventListener("submit", function() {
+  setTimeout(() => {
     form.style.display = "none";
     successMsg.style.display = "block";
-  });
+  }, 100); // Wait slightly for form to submit before showing message
+});
+
 
   const faqHeaders = document.querySelectorAll('.faq h4');
   faqHeaders.forEach(header => {
@@ -557,3 +559,4 @@
 </script>
 </body>
 </html>
+
